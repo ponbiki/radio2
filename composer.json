@@ -11,7 +11,7 @@
     "license": "GPLv2",
     "autoload": {
         "psr-4": {
-            "ponbiki\\7chanradio\\": "src/"
+            "ponbiki\\radio\\": "src/"
         }
     },
     "authors": [
