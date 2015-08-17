@@ -1,0 +1,23 @@
+{
+    "name": "ponbiki/7chanradio",
+    "description": "7chanradio v.2",
+    "require": {
+        "php": ">=5.4.0",
+        "ext-pdo": "*",
+        "slim/slim": "~2.6",
+        "slim/views": "0.1.*",
+        "twig/twig": "~1.20"
+    },
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "ponbiki\\7chanradio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ponbiki",
+            "email": "ponbiki@no.spam"
+        }
+    ]
+}
