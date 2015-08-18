@@ -3,5 +3,10 @@
 use ponbiki\radio as rad;
 
 $app->get('/', function () use ($app) {
-    $app->render('home.html.twig');
+    
+    $page = "test";
+    $meta = "blank";
+    
+    $app->render('home.html.twig', []);
+    
 })->name('home');
