@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="7chanRadioApp">
     <head>
     {% block head %}
     <meta charset="utf-8">
@@ -11,19 +11,19 @@
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/7cr.css" rel="stylesheet">
     {% block keywords %}{% endblock %}
-    <meta name='apple-mobile-web-app-capable' content='yes'>
-    <meta name='application-name' content='7chan Radio'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="7chan Radio">
     {% block scripts %}{% endblock %}
     {% endblock %}
     </head>
-    <body>
     {% block content %}{% endblock %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src='js/jquery-1.11.3.js'></script>
-    <script src='js/bootstrap.js'></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src='js/ie10-viewport-bug-workaround.js'></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
