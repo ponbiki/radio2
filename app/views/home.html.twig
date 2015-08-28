@@ -7,10 +7,9 @@
     <meta name="keywords" content="7chan Radio, {{ meta }}">
     {% endblock %}
 {% endblock %}
-{% block scripts %}
+{% block headscripts %}
 {% endblock %}
 {% block content %}
-<body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -25,9 +24,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a ng-click="home" href="#">Home</a></li>
+                <li><a ng-click="about" href="#about">About</a></li>
+                <li><a ng-click="contact" href="#contact">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -43,6 +42,14 @@
             <h1>Dick Butt</h1>
             <p class="lead">Dicks everywhere</p>
         </div>
-        
     </div><!-- /.container -->
+    {% block angular %}
+        <script type="text/javascript">
+            angular.module('7chanRadioApp', []).controller('MainCtrl', [
+                function() {
+                    var self = this;
+                }
+            ]);
+        </script>
+    {% endblock %}
 {% endblock %}
