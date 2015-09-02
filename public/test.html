@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div ng-app="">
+            <h1>Ng-show & ng-hide</h1>
+            <p class="description">Click on the "show"-link to see the content.</p>
+            <a href="" ng-click="showme=true">Show</a>
+            <button ng-click="showme=false">Hide</button> 
+
+            <div class="wrapper">
+                <p ng-hide="showme">It will appear here!</p>
+                <h2 ng-show="showme">This is mah content, yo!</h2>
+            </div>
+        </div>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js">
+        </script>
+    </body>
+</html>
