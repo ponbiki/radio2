@@ -24,8 +24,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li class="active"><a href="#" id="homB">Home</a></li>
+                <li><a href="#" onclick="toggler('about');">About</a></li>
                 <!--<li><a href="#contact">Contact</a></li>-->
             </ul>
         </div><!--/.nav-collapse -->
@@ -37,11 +37,19 @@
                 <h1>7chan Radio</h1>
                 <p class="lead">Just slightly worse than the music you were going to listen to anyway</p>
             </div>
-            <div id="about">
+            <div id="about" class="hidden">
+                <div>
                 <h1>Dick Butt</h1>
                 <p class="lead">Dicks everywhere!</p>
+                </div>
             </div>
         </div>
     </div><!-- /.container -->
 {% endblock %}
-{% block angular %}{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+    function toggler(divId) {
+        $("#" + divId).toggle();
+    }
+    </script>
+{% endblock %}
