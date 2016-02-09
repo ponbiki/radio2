@@ -55,3 +55,7 @@ p {
 footer.page-footer {
   margin: 0;
 }
+.parallax-container:hover img{
+  filter: blur(3px) sepia(25%) contrast(75%);
+  -webkit-filter: blur(3px) sepia(25%) contrast(75%);
+}
