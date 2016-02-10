@@ -55,7 +55,37 @@ p {
 footer.page-footer {
   margin: 0;
 }
-.parallax-container:hover img{
-  filter: blur(3px) sepia(25%) contrast(75%);
-  -webkit-filter: blur(3px) sepia(25%) contrast(75%);
+
+.parallax-container:hover img {
+  -webkit-animation: fadeblur 1s forwards;
+  -moz-animation: fadeblur 1s forwards;
+  -o-animation: fadeblur 1s forwards;
+  animation: fadeblur 1s forwards;
+}
+
+@keyframes fadeblur {
+  from {
+  }
+
+  to {
+    filter: blur(3px) sepia(45%) contrast(55%);
+    -webkit-filter: blur(3px) sepia(45%) contrast(55%);
+  }
+}
+
+.parallax-container img {
+  -webkit-animation: unfadeblur 1s forwards;
+  -moz-animation: unfadeblur 1s forwards;
+  -o-animation: unfadeblur 1s forwards;
+  animation: unfadeblur 1s forwards;
+}
+
+@keyframes unfadeblur {
+  from {
+    filter: blur(3px) sepia(45%) contrast(55%);
+    -webkit-filter: blur(3px) sepia(45%) contrast(55%);
+  }
+
+  to {
+  }
 }
