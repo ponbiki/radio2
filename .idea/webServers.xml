@@ -2,12 +2,15 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="e85c0c21-a075-43ba-a7a0-a327df2c8320" name="dev.7chanradio.org" url="http://dev.7chanradio.org">
+      <webServer id="e85c0c21-a075-43ba-a7a0-a327df2c8320" name="dev.7chanradio.org" url="/public/">
         <fileTransfer host="dev.7chanradio.org" port="2202" rootFolder="/home/ponbiki/dev.7chanradio.org" accessType="SFTP" password="dfe3dfebdfc7dfe4dfc5dfdedff9dfcbdfd0dfdadfcbdfc3dfc7dfc5dfc4df93df9adf9adf9adf8b" username="ponbiki">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
         </fileTransfer>
+      </webServer>
+      <webServer id="d041e66e-e450-4c0f-9286-8544bc631c87" name="local" url="http://localhost">
+        <fileTransfer mountedRoot="$PROJECT_DIR$/public" accessType="MOUNT" />
       </webServer>
     </option>
   </component>
