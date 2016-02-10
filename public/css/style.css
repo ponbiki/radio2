@@ -57,13 +57,13 @@ footer.page-footer {
 }
 
 .parallax-container:hover img {
-  -webkit-animation: fadeblur 1s forwards;
-  -moz-animation: fadeblur 1s forwards;
-  -o-animation: fadeblur 1s forwards;
-  animation: fadeblur 1s forwards;
+  -webkit-animation: fade-blur 1s forwards;
+  -moz-animation: fade-blur 1s forwards;
+  -o-animation: fade-blur 1s forwards;
+  animation: fade-blur 1s forwards;
 }
 
-@keyframes fadeblur {
+@keyframes fade-blur {
   from {
   }
 
@@ -74,13 +74,13 @@ footer.page-footer {
 }
 
 .parallax-container img {
-  -webkit-animation: unfadeblur 1s forwards;
-  -moz-animation: unfadeblur 1s forwards;
-  -o-animation: unfadeblur 1s forwards;
-  animation: unfadeblur 1s forwards;
+  -webkit-animation: un-fade-blur 1s forwards;
+  -moz-animation: un-fade-blur 1s forwards;
+  -o-animation: un-fade-blur 1s forwards;
+  animation: un-fade-blur 1s forwards;
 }
 
-@keyframes unfadeblur {
+@keyframes un-fade-blur {
   from {
     filter: blur(3px) sepia(45%) contrast(55%);
     -webkit-filter: blur(3px) sepia(45%) contrast(55%);
