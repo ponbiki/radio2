@@ -1,5 +1,6 @@
 <?php
 
+
 namespace ponbiki\radio;
 
 /**
@@ -9,57 +10,72 @@ namespace ponbiki\radio;
  * @license GPLv2
  */
 
-class Meta implements iMeta
+class SongInfo implements iSongInfo
 {
     /**
-     * Remote URL of stream data page
+     * Remote URL of stream data XSLT
      * @var string Metadata source page URL
      */
-    private $metaUrl = 'http://radio.7chan.org:8000/status.xsl';
+    private $metaUrl = 'http://radio.7chan.org:8000/status3.xsl';
 
     /**
-     * Remote stream data page as string
-     * @var string Remote metadata page loaded into a string
+     * Copy of remote XSLT into a string
+     * @var string XSLT as a single string
      */
-    protected $metaStr;
+    private $xmlString;
 
     /**
-     * DOM searchable object of meta page
-     * @var object DOM searchable object of data page
+     * Playing field data from XSLT
+     * @var string Artist - Song data
      */
-    protected $doc;
+    public $nowPlaying;
 
     /**
-     * Connects to remote server and collects page as string
-     * @param string $url A string of the remote metadata source address to load
-     * @property string $metaStr Sets a string with the contents of the remote URL
-     * @throws \PDOException If remote page cannot be reached/loaded throw exception
+     * Name field data from XSLT
+     * @var string Name data
      */
-    protected function getMeta($url)
+    public $dj;
+
+    /**
+     * Listeners field data from XSLT
+     * @var int Current listener count
+     */
+    public $currentListeners;
+
+    /**
+     * Peaklisteners field data from XSLT
+     * @var int Peak listener count
+     */
+    public $peakListeners;
+
+    /**
+     * Description field data from XSLT
+     * @var string DJ set stream description
+     */
+    public $description;
+
+    /**
+     * Genre field data from XSLT
+     * @var string DJ set stream genre
+     */
+    public $genre;
+
+    /**
+     * Connects to remote server, and loads XSLT data into a string
+     * @property string $this->xmlString Attempts to set $xmlString property
+     * @throws \PDOException If unable to connect to remote server, report message and code
+     * @return string $this->xmlString If no exception return string of XSLT
+     */
+    private function getXml()
     {
         try {
-            $this->metaStr = \file_get_contents($url);
+            $this->xmlString = \file_get_contents($this->metaUrl);
         } catch (\PDOException $e) {
             $code = $e->getCode();
             $message = $e->getMessage();
             echo "Unable to contact remote streaming server for metadata." . \PHP_EOL . $code . \PHP_EOL . $message;
             \exit;
         }
+        return $this->xmlString;
     }
-
-    /**
-     * Calls getMeta() and loads the resulting string into a DOM searchable object
-     * @property object $doc HTML Document as searchable Object
-     */
-    protected function setMeta()
-    {
-        $this->getMeta($this->metaUrl);
-        $this->doc = new \DOMDocument($this->metaStr);
-    }
-
-/**
- * note for later
- * application/ogg
- * audio/mpeg
- */
 }

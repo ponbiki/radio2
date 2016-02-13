@@ -4,7 +4,7 @@
 namespace ponbiki\radio;
 
 
-interface iMeta
+interface iStreamType
 {
 
 }
