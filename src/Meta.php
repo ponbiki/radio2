@@ -66,10 +66,10 @@ class SongInfo implements iSongInfo
      * @throws \PDOException If unable to connect to remote server, report message and code
      * @return string $this->xmlString If no exception return string of XSLT
      */
-    private function getXml()
+    private function getXml($url)
     {
         try {
-            $this->xmlString = \file_get_contents($this->metaUrl);
+            $this->xmlString = \file_get_contents($url);
         } catch (\PDOException $e) {
             $code = $e->getCode();
             $message = $e->getMessage();
@@ -77,5 +77,10 @@ class SongInfo implements iSongInfo
             \exit;
         }
         return $this->xmlString;
+    }
+
+    public function convertString()
+    {
+
     }
 }
