@@ -24,6 +24,12 @@ class Meta implements iMeta
     protected $metaStr;
 
     /**
+     * DOM searchable object of meta page
+     * @var object DOM searchable object of data page
+     */
+    protected $doc;
+
+    /**
      * Connects to remote server and collects page as string
      * @param string $url A string of the remote metadata source address to load
      * @property string $metaStr Sets a string with the contents of the remote URL
