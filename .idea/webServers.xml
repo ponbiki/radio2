@@ -10,7 +10,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="d041e66e-e450-4c0f-9286-8544bc631c87" name="local" url="http://localhost">
-        <fileTransfer mountedRoot="$PROJECT_DIR$/public" accessType="MOUNT" />
+        <fileTransfer mountedRoot="$PROJECT_DIR$" accessType="MOUNT" />
       </webServer>
     </option>
   </component>
