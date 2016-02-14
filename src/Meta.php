@@ -75,15 +75,15 @@ class SongInfo implements iSongInfo
     /**
      * Connects to remote server, loads XSLT data into a string, and converts to object
      * @param string $url The URL of the remote server's XSLT data page
-     * @throws \PDOException If unable to connect to remote server, report message and code
-     * @property object $this->xmlObject XSLT represented as an object
+     * @throws \Exception If unable to connect to remote server, report message and code
+     * @var object $this->xmlObject XSLT represented as an object
      * @return object $this->xmlObject Returns converted XML as PHP object
      */
     private function getXml($url)
     {
         try {
             $xmlString = \file_get_contents($url);
-        } catch (\PDOException $e) {
+        } catch (\Exception $e) {
             $code = $e->getCode();
             $message = $e->getMessage();
             echo "Unable to contact remote streaming server for metadata." . \PHP_EOL . $code . \PHP_EOL . $message;
@@ -97,13 +97,13 @@ class SongInfo implements iSongInfo
     /**
      * Checks if /radio stream is mounted either alone or in an array with other streams, and if it is mounted
      * sets the onAir to TRUE as well as setting all stream metadata values
-     * @property bool $this->onAir Will be set  TRUE if streaming
-     * @property string $this->nowPlaying Artist and song information
-     * @property string $this->dj Dj Name
-     * @property int $this->listeners Current listener count
-     * @property int $this->peakListeners Max listener count this session
-     * @property string $this->description DJ defined stream description
-     * @property string $this->genre DJ defined stream genre
+     * @var bool $this->onAir Will be set  TRUE if streaming
+     * @var string $this->nowPlaying Artist and song information
+     * @var string $this->dj Dj Name
+     * @var int $this->listeners Current listener count
+     * @var int $this->peakListeners Max listener count this session
+     * @var string $this->description DJ defined stream description
+     * @var string $this->genre DJ defined stream genre
      */
     private function setMeta()
     {
