@@ -155,7 +155,7 @@ class SongInfo implements iSongInfo
      */
     public function getMeta()
     {
-        if (self:: pollStream() === \TRUE) {
+        if (self::pollStream() === \TRUE) {
             $this->meta = [
                 'status' => "ON",
                 'playing' => $this->nowPlaying,
