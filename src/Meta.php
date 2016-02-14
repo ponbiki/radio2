@@ -74,8 +74,10 @@ class SongInfo implements iSongInfo
 
     /**
      * Connects to remote server, loads XSLT data into a string, and converts to object
+     * @param string $url The URL of the remote server's XSLT data page
      * @throws \PDOException If unable to connect to remote server, report message and code
      * @property object $this->xmlObject XSLT represented as an object
+     * @return object $this->xmlObject Returns converted XML as PHP object
      */
     private function getXml($url)
     {
