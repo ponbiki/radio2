@@ -87,7 +87,7 @@ class SongInfo implements iSongInfo
             $code = $e->getCode();
             $message = $e->getMessage();
             echo "Unable to contact remote streaming server for metadata." . \PHP_EOL . $code . \PHP_EOL . $message;
-            \exit;
+            exit;
         }
         $this->xmlObject = \simplexml_load_string($xmlString);
         return $this->xmlObject;
