@@ -110,9 +110,9 @@ class SongInfo implements iSongInfo
         $metaObj = self::getXml($this->metaUrl);
         if (\is_array($metaObj->mountpoint)) {
             foreach ($metaObj->mountpoint as $x) {
-                if ($metaObj->mountpoint[$x]->{@attributes}->id !== '/radio') {
+                if ($metaObj->mountpoint[$x]->attributes()->id !== '/radio') {
                     continue;
-                } elseif ($metaObj->mountpoint[$x]->{@attributes}->id !== '/radio') {
+                } elseif ($metaObj->mountpoint[$x]->attributes()->id !== '/radio') {
                     $this->onAir = \TRUE;
                     $this->nowPlaying = $metaObj->mountpoint[$x]->playing;
                     $this->dj = $metaObj->mountpoint[$x]->name;
@@ -122,7 +122,7 @@ class SongInfo implements iSongInfo
                     $this->genre = $metaObj->mountpoint[$x]->genre;
                 }
             }
-        } elseif ($metaObj->mountpoint->{@attributes}->id === '/radio') {
+        } elseif ($metaObj->mountpoint->attributes()->id === '/radio') {
             $this->onAir = \TRUE;
             $this->nowPlaying = $metaObj->mountpoint->playing;
             $this->dj = $metaObj->mountpoint->name;
