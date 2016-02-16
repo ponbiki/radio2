@@ -108,30 +108,20 @@ class Meta implements iMeta
     private function setMeta()
     {
         $metaObj = self::getXml($this->metaUrl);
-        if (\is_array($metaObj->mountpoint)) {
-            foreach ($metaObj->mountpoint as $x) {
-                if ($metaObj->mountpoint[$x]->attributes()->id !== '/radio') {
-                    continue;
-                } elseif ($metaObj->mountpoint[$x]->attributes()->id !== '/radio') {
-                    $this->onAir = \TRUE;
-                    $this->nowPlaying = $metaObj->mountpoint[$x]->playing;
-                    $this->dj = $metaObj->mountpoint[$x]->name;
-                    $this->currentListeners = $metaObj->mountpoint[$x]->listeners;
-                    $this->peakListeners = $metaObj->mountpoint[$x]->peaklisteners;
-                    $this->description = $metaObj->mountpoint[$x]->description;
-                    $this->genre = $metaObj->mountpoint[$x]->genre;
-                }
+        $this->onAir = \FALSE;
+        for ($x=0; $x < count((array)$metaObj); $x++) {
+            if ((string)$metaObj->mountpoint[$x]['id'] === '/radio') {
+                $this->onAir = \TRUE;
+                $this->nowPlaying = $metaObj->mountpoint[$x]->playing;
+                $this->dj = $metaObj->mountpoint[$x]->name;
+                $this->currentListeners = $metaObj->mountpoint[$x]->listeners;
+                $this->peakListeners = $metaObj->mountpoint[$x]->peaklisteners;
+                $this->description = $metaObj->mountpoint[$x]->description;
+                $this->genre = $metaObj->mountpoint[$x]->genre;
             }
-        } elseif ($metaObj->mountpoint->attributes()->id === '/radio') {
-            $this->onAir = \TRUE;
-            $this->nowPlaying = $metaObj->mountpoint->playing;
-            $this->dj = $metaObj->mountpoint->name;
-            $this->currentListeners = $metaObj->mountpoint->listeners;
-            $this->peakListeners = $metaObj->mountpoint->peaklisteners;
-            $this->description = $metaObj->mountpoint->description;
-            $this->genre = $metaObj->mountpoint->genre;
         }
     }
+
 
 
     /**
@@ -157,16 +147,16 @@ class Meta implements iMeta
     {
         if (self::pollStream() === \TRUE) {
             $this->meta = [
-                'status' => "ON",
-                'playing' => $this->nowPlaying,
-                'dj' => $this->dj,
-                'listeners' => $this->currentListeners,
-                'peak' => $this->peakListeners,
-                'desc' => $this->description,
-                'genre' => $this->genre
+                'status' => "on",
+                'playing' => (string)$this->nowPlaying,
+                'dj' => (string)$this->dj,
+                'listeners' => (int)$this->currentListeners,
+                'peak' => (int)$this->peakListeners,
+                'desc' => (string)$this->description,
+                'genre' => (string)$this->genre
             ];
         } else {
-            $this->meta = ['status' => "OFF"];
+            $this->meta = ['status' => "off"];
         }
         return $this->meta;
     }
