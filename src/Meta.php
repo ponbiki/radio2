@@ -10,7 +10,7 @@ namespace ponbiki\radio;
  * @license GPLv2
  */
 
-class SongInfo implements iSongInfo
+class Meta implements iMeta
 {
     /**
      * Remote URL of stream data XSLT
