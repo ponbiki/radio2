@@ -5,7 +5,7 @@ use ponbiki\radio as radio;
 $app->get('/meta', function () use ($app) {
 
     /**
-     * @var array Loads the results of "now playin" meta into a local array
+     * @var array Loads the results of "now playing" meta into a local array
      */
     $metaArray = (new radio\Meta())->getMeta();
 
