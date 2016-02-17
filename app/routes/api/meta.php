@@ -10,9 +10,9 @@ $app->get('/api/meta', function () use ($app) {
     $metaJson = json_encode((new radio\Meta())->getMeta());
 
     /**
-     * 
+     * Returns meta as JSON for API calls
      * @return string Returns messages as JSON
      */
-    print($metaJson);
+    print($metaJson . \PHP_EOL);
 
 });
