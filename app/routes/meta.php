@@ -4,6 +4,10 @@ use ponbiki\radio as radio;
 
 $app->get('/meta', function () use ($app) {
 
-    return (new radio\Meta())->getMeta();
+    print("<ul>");
+    foreach ((new radio\Meta())->getMeta() as $key => $value) {
+        print("<li>$key -- $value </li>");
+     }
+    print("</ul>");
 
 });
