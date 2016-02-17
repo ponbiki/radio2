@@ -80,8 +80,7 @@ class Meta implements iMeta
         } catch (\Exception $e) {
             $code = $e->getCode();
             $message = $e->getMessage();
-            echo "Unable to contact remote streaming server for metadata." . \PHP_EOL . $code . \PHP_EOL . $message;
-            exit;
+            return "Unable to contact remote streaming server for metadata." . \PHP_EOL . $code . \PHP_EOL . $message;
         }
         $this->xmlObject = \simplexml_load_string($xmlString);
         return $this->xmlObject;
