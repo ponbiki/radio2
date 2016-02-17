@@ -13,12 +13,6 @@ namespace ponbiki\radio;
 class Meta implements iMeta
 {
     /**
-     * Remote URL of stream data XSLT
-     * @var string Metadata source page URL
-     */
-    private $metaUrl = 'http://radio.7chan.org:8000/status3.xsl';
-
-    /**
      * Object representation of remote XSLT
      * @var object XML object
      */
@@ -107,7 +101,7 @@ class Meta implements iMeta
      */
     private function setMeta()
     {
-        $metaObj = self::getXml($this->metaUrl);
+        $metaObj = self::getXml(Meta::METAURL);
         $this->onAir = \FALSE;
         for ($x=0; $x < count((array)$metaObj); $x++) {
             if ((string)$metaObj->mountpoint[$x]['id'] === '/radio') {
