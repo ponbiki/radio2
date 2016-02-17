@@ -80,7 +80,8 @@ class Meta implements iMeta
         } catch (\Exception $e) {
             $code = $e->getCode();
             $message = $e->getMessage();
-            return "Unable to contact remote streaming server for metadata." . \PHP_EOL . $code . \PHP_EOL . $message;
+            print('Unable to contact remote streaming server for metadata.' . \PHP_EOL . $code . \PHP_EOL . $message);
+            exit;
         }
         $this->xmlObject = \simplexml_load_string($xmlString);
         return $this->xmlObject;
@@ -140,7 +141,7 @@ class Meta implements iMeta
     {
         if (self::pollStream() === \TRUE) {
             $this->meta = [
-                'status' => "on",
+                'status' => 'on',
                 'playing' => (string)$this->nowPlaying,
                 'dj' => (string)$this->dj,
                 'listeners' => (int)$this->currentListeners,
@@ -149,7 +150,7 @@ class Meta implements iMeta
                 'genre' => (string)$this->genre
             ];
         } else {
-            $this->meta = ['status' => "off"];
+            $this->meta = ['status' => 'off'];
         }
         return $this->meta;
     }
