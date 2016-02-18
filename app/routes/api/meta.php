@@ -13,6 +13,7 @@ $app->get('/api/meta', function () use ($app) {
      * Returns meta as JSON for API calls
      * @return string Returns messages as JSON
      */
+    header('Content-Type: application/json');
     print($metaJson . \PHP_EOL);
 
 });

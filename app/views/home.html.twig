@@ -74,7 +74,7 @@
                     <div class="icon-block">
                         <h2 class="center deep-purple-text lighten-3"><i class="material-icons">radio</i></h2>
                         <h5 class="center">Now Playing</h5>
-                        <p class="light"><ul class="center"><div id="announcer"></div></ul></p>
+                        <p class="light"><ul class="center light"><div id="announcer"></div></ul></p>
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
             $(document).ready(function() {
                 $.ajaxSetup({cache: false});
                 setInterval(function() {
-                    $('#announcer').load('/meta');
+                    $('#announcer').load('/meta');;
                 }, 3000);
             });
             // ]]>
