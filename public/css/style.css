@@ -60,8 +60,8 @@ footer.page-footer {
   }
 
   to {
-    filter: blur(3px) sepia(45%) contrast(55%);
-    -webkit-filter: blur(3px) sepia(45%) contrast(55%);
+    filter: blur(3px) sepia(10%) contrast(95%);
+    -webkit-filter: blur(3px) sepia(10%) contrast(95%);
   }
 }
 
@@ -74,8 +74,8 @@ footer.page-footer {
 
 @keyframes un-fade-blur {
   from {
-    filter: blur(3px) sepia(45%) contrast(55%);
-    -webkit-filter: blur(3px) sepia(45%) contrast(55%);
+    filter: blur(3px) sepia(10%) contrast(95%);
+    -webkit-filter: blur(3px) sepia(10%) contrast(95%);
   }
 
   to {
