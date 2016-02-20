@@ -36,7 +36,7 @@
                     <h5 class="header col s12 pink-text text-lighten-4" style="text-shadow:-1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;">Only slightly worse than the music you already listen to!</h5>
                 </div>
                 <div class="row center" id="shown">
-                    <a href="#" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Listen Now!</a>
+                    <a href="#" id="listen-button" class="btn-large waves-effect waves-light blue lighten-1">Listen Now!</a>
                 </div>
                 <div id="hidden" class="row center" style="display: none;">
                     <div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -207,9 +207,10 @@
             });
         </script>
         <script>
-            $( "#download-button" ).click(function() {
-                $( "#hidden" ).toggle( "fast" );
-                $( "#shown").toggle( "fast" );
+            $("#listen-button").click(function(e) {
+                $("#hidden").toggle("fast");
+                $("#shown").toggle("fast");
+                $(".jp-play").trigger(e.type);
             });
         </script>
     {% endblock %}
