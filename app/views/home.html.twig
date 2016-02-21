@@ -174,18 +174,13 @@
         </div>
     </footer>
     {% block scripts %}
-        <script type="text/javascript">// <![CDATA[
-            $(document).ready(function() {
+        <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
                 $.ajaxSetup({cache: false});
                 setInterval(function() {
                     $('#announcer').load('/meta');;
                 }, 3000);
-            });
-            // ]]>
-        </script>
-        <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
                 $("#jquery_jplayer_1").jPlayer({
                     ready: function () {
                         $(this).jPlayer("setMedia", {
@@ -204,14 +199,12 @@
                     remainingDuration: true,
                     toggleDuration: true
                 });
+                $("#listen-button").click(function(e) {
+                    $("#hidden").toggle("fast");
+                    $("#shown").toggle("fast");
+                    $(".jp-play").trigger(e.type);
             });
-        </script>
-        <script>
-            $("#listen-button").click(function(e) {
-                $("#hidden").toggle("fast");
-                $("#shown").toggle("fast");
-                $(".jp-play").trigger(e.type);
-            });
+        });
         </script>
     {% endblock %}
 {% endblock %}
