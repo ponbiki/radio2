@@ -1,7 +1,0 @@
-{
-  "name": "irc-command",
-  "version": "0.0.1",
-  "description": "",
-  "dependencies": { "irc": "0.3.6"
-  }
-}
