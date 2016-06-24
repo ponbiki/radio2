@@ -4,7 +4,7 @@ namespace ponbiki\radio;
 
 class MetaTest extends \PHPUnit_Framework_TestCase
 {
-    public function testTrueisTrue() {
+    public function testGetMeta() {
         $foo = true;
         $this->assertTrue($foo);
     }
