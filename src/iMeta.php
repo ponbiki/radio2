@@ -5,7 +5,7 @@ namespace ponbiki\radio;
 
 /**
  * Remotely grab, parse, and return stream metadata for asynchronous updating of "Now Playing"
- * Class Meta
+ * Interface iMeta
  * @package ponbiki\radio
  * @license GPLv2
  */
