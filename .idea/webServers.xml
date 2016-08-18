@@ -7,6 +7,7 @@
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
+          <option name="port" value="2202" />
         </fileTransfer>
       </webServer>
       <webServer id="d041e66e-e450-4c0f-9286-8544bc631c87" name="local" url="http://localhost">
